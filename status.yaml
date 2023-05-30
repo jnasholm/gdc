@@ -1,0 +1,34 @@
+# Status configuration
+
+# Controller status indicator
+output:
+  - platform: ledc
+    id: garage_door_controller_status
+    pin: GPIO33
+
+# System status indicator
+light:
+  - platform: status_led
+    name: $node_prefix systemstatus
+    id: system_status_indicator
+    pin:
+      number: GPIO32
+      inverted: true
+  # Relay status indicator
+  - platform: monochromatic
+    name: $node_prefix reglerstatus
+    id: controller_status_indicator
+    output: garage_door_controller_status
+
+# Controller operational state
+binary_sensor:
+  - platform: template
+    id: garage_door_controller_state
+    lambda: |-
+      if ( id(gd_relay).state ) {
+          id(controller_status_indicator).turn_on();
+          return true;
+      } else {
+          id(controller_status_indicator).turn_off();
+          return false;
+      }

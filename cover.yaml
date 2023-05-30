@@ -1,0 +1,67 @@
+# Cover configurations
+
+# Relay configuration
+switch:
+  - platform: gpio
+    pin:
+      number: GPIO27
+      mode:
+        output: true
+    id: gd_relay
+    name: Garageportrelä
+    icon: mdi:garage-variant
+    on_turn_on:
+    - delay: 800ms
+    - switch.turn_off: gd_relay
+
+# End stop sensor configuration
+binary_sensor:
+  # Garage door open
+  - platform: gpio
+    pin:
+      number: GPIO25
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    id: gd_open_sensor
+    name: Garageport öppen
+    filters:
+      - delayed_on_off: 400ms
+  # Garage door closed
+  - platform: gpio
+    pin:
+      number: GPIO26
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    id: gd_closed_sensor
+    name: Garageport stängd
+    filters:
+      - delayed_on_off: 400ms
+
+# Cover operation configuration
+cover:
+  - platform: endstop
+    name: Garageport
+    device_class: garage
+    # Open garage door
+    open_action:
+      - switch.turn_on: gd_relay
+    open_duration: 22s
+    open_endstop: gd_open_sensor
+    # Close garage door
+    close_action:
+      - switch.turn_on: gd_relay
+    close_duration: 22s
+    close_endstop: gd_closed_sensor
+    # Stop garage door
+    stop_action:
+      - if:
+          condition:
+            and:
+              - lambda: 'return id(gd_closed_sensor).state == false;'
+              - lambda: 'return id(gd_open_sensor).state == false;'
+          then:
+            - switch.turn_on: gd_relay
