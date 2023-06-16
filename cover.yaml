@@ -28,6 +28,9 @@ binary_sensor:
     name: Garageport öppen
     filters:
       - delayed_on_off: 400ms
+    on_press:
+      then:
+        - lambda: 'return id(gd_garage_door).publish_state(COVER_OPEN);'
   # Garage door closed
   - platform: gpio
     pin:
@@ -40,11 +43,25 @@ binary_sensor:
     name: Garageport stängd
     filters:
       - delayed_on_off: 400ms
+    on_press:
+      then:
+        - lambda: 'return id(gd_garage_door).publish_state(COVER_CLOSED);'
+  # Garage door intermediate position
+  - platform: template
+    id: gd_intermediate_position
+    lambda: |-
+      if ( (id(gd_open_sensor).state == false) && 
+           (id(gd_closed_sensor).state == false) ) {
+          return true;
+      } else {
+          return false;
+      }
 
 # Cover operation configuration
 cover:
   - platform: endstop
     name: Garageport
+    id: gd_garage_door
     device_class: garage
     # Open garage door
     open_action:

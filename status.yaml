@@ -19,13 +19,25 @@ light:
     name: $node_prefix reglerstatus
     id: controller_status_indicator
     output: garage_door_controller_status
+    effects:
+      - pulse:
+          name: active
+          transition_length: 0.2s
+          update_interval: 0.8s
+      - pulse:
+          name: idle
+          transition_length: 0.2s
+          update_interval: 4s
 
 # Controller operational state
 binary_sensor:
   - platform: template
     id: garage_door_controller_state
     lambda: |-
-      if ( id(gd_relay).state ) {
+      if ( id(gd_intermediate_position).state ) {
+          id(controller_status_indicator).turn_on().set_effect("active").perform();
+          return true;
+      } else if ( id(gd_relay).state ) {
           id(controller_status_indicator).turn_on();
           return true;
       } else {
