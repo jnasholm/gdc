@@ -3,58 +3,58 @@
 # Relay configuration
 switch:
   - platform: gpio
+    name: Garageportrelä
+    id: gd_relay
+    icon: mdi:garage-variant
     pin:
       number: GPIO27
       mode:
         output: true
-    id: gd_relay
-    name: Garageportrelä
-    icon: mdi:garage-variant
     on_turn_on:
-    - delay: 800ms
-    - switch.turn_off: gd_relay
+      - delay: 800ms
+      - switch.turn_off: gd_relay
 
 # End stop sensor configuration
 binary_sensor:
   # Garage door open
   - platform: gpio
+    name: Garageport öppen
+    id: gd_open_position
     pin:
       number: GPIO25
       inverted: true
       mode:
         input: true
         pullup: true
-    id: gd_open_sensor
-    name: Garageport öppen
     filters:
       - delayed_on_off: 400ms
     on_press:
-      then:
-        - lambda: 'return id(gd_garage_door).publish_state(COVER_OPEN);'
+      - lambda: |-
+          id(gd_garage_door).publish_state(COVER_OPEN);
   # Garage door closed
   - platform: gpio
+    name: Garageport stängd
+    id: gd_closed_position
     pin:
       number: GPIO26
       inverted: true
       mode:
         input: true
         pullup: true
-    id: gd_closed_sensor
-    name: Garageport stängd
     filters:
       - delayed_on_off: 400ms
     on_press:
-      then:
-        - lambda: 'return id(gd_garage_door).publish_state(COVER_CLOSED);'
+      - lambda: |-
+          id(gd_garage_door).publish_state(COVER_CLOSED);
   # Garage door intermediate position
   - platform: template
     id: gd_intermediate_position
     lambda: |-
-      if ( (id(gd_open_sensor).state == false) && 
-           (id(gd_closed_sensor).state == false) ) {
-          return true;
+      if ( (id(gd_open_position).state == false) && 
+           (id(gd_closed_position).state == false) ) {
+        return true;
       } else {
-          return false;
+        return false;
       }
 
 # Cover operation configuration
@@ -67,18 +67,15 @@ cover:
     open_action:
       - switch.turn_on: gd_relay
     open_duration: 22s
-    open_endstop: gd_open_sensor
+    open_endstop: gd_open_position
     # Close garage door
     close_action:
       - switch.turn_on: gd_relay
     close_duration: 22s
-    close_endstop: gd_closed_sensor
+    close_endstop: gd_closed_position
     # Stop garage door
     stop_action:
-      - if:
-          condition:
-            and:
-              - lambda: 'return id(gd_closed_sensor).state == false;'
-              - lambda: 'return id(gd_open_sensor).state == false;'
-          then:
-            - switch.turn_on: gd_relay
+      - lambda: |-
+          if ( id(gd_intermediate_position).state ) {
+            id(gd_relay).turn_on();
+          }
