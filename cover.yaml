@@ -7,7 +7,7 @@ switch:
     id: gd_relay
     icon: mdi:garage-variant
     pin:
-      number: GPIO27
+      number: GPIO21
       mode:
         output: true
     on_turn_on:
@@ -21,7 +21,7 @@ binary_sensor:
     name: Garageport öppen
     id: gd_open_position
     pin:
-      number: GPIO25
+      number: GPIO17
       inverted: true
       mode:
         input: true
@@ -36,7 +36,7 @@ binary_sensor:
     name: Garageport stängd
     id: gd_closed_position
     pin:
-      number: GPIO26
+      number: GPIO16
       inverted: true
       mode:
         input: true
@@ -56,6 +56,20 @@ binary_sensor:
       } else {
         return false;
       }
+  # Garage door external open/close switch
+  - platform: gpio
+    name: Garageport manövrering
+    id: gd_external_switch
+    pin:
+      number: GPIO19
+      inverted: false
+      mode:
+        input: true
+        pulldown: true
+    filters:
+      - delayed_on_off: 400ms
+    on_press:
+      - switch.turn_on: gd_relay
 
 # Cover operation configuration
 cover:
