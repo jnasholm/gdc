@@ -9,6 +9,10 @@ substitutions:
   node_name: gdr1
   node_prefix: GD
 
+# Define zone id and name
+  zone_id:   garage
+  zone_name: RK Garage
+
 # Board configuration
 esphome:
   project:
@@ -57,3 +61,4 @@ packages:
   time: !include time.yaml
   status: !include status.yaml
   cover: !include cover.yaml
+#  room_climate: !include sensors-room_climate.yaml

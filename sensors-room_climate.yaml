@@ -1,0 +1,38 @@
+# Room climate sensor configuration
+
+# Input configuration room sensors
+i2c:
+  sda: GPIO12
+  scl: GPIO14
+  scan: true
+
+# Room climate sensor BMP280 (temperature and pressure)
+#sensor:
+#  - platform: bmp280
+#    temperature:
+#      name: $zone_name temperatur
+#      id: zone_temperature
+#      accuracy_decimals: 2
+#      oversampling: 16x
+#    pressure:
+#      name: $zone_name lufttryck
+#      id: zone_pressure
+#    address: 0x76
+#    update_interval: 10s
+
+# Room climate sensor BME280 (temperature, humidity and pressure)
+sensor:
+  - platform: bme280_i2c
+    temperature:
+      name: $zone_name temperatur
+      id: zone_temperature
+      accuracy_decimals: 2
+      oversampling: 16x
+    humidity:
+      name: $zone_name luftfuktighet
+      id: zone_humidity
+    pressure:
+      name: $zone_name lufttryck
+      id: zone_pressure
+    address: 0x76
+    update_interval: 10s
