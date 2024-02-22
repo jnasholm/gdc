@@ -61,4 +61,4 @@ packages:
   time: !include time.yaml
   status: !include status.yaml
   cover: !include cover.yaml
-#  room_climate: !include sensors-room_climate.yaml
+  room_climate: !include sensors-room_climate.yaml
