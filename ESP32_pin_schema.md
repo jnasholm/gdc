@@ -4,14 +4,14 @@ The controller IO pins are assigned according to the table below[^1][^2][^3].
 
 |Function|Pin|Comment|
 |------------------------------|:--:|--------|
-|Climate sensor i2c SDA|12|
-|Climate sensor i2c SCL|14|
 |Garage door closed sensor|16|
 |Garage door open sensor|17|Used for ethernet port if enabled
 ||18|Used for ethernet port if enabled
 |External open/close switch|19|
 |Garage door relay open/close|21|
 ||23|Used for ethernet port if enabled
+|Climate sensor i2c SDA|26|
+|Climate sensor i2c SCL|27|
 |System status LED|32|
 |Controller status LED|33|
 |Battery voltage|35|May require soldering on the ESP32 board to enable|
