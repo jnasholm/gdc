@@ -18,7 +18,7 @@ i2c:
 #      name: $zone_name lufttryck
 #      id: zone_pressure
 #    address: 0x76
-#    update_interval: 10s
+#    update_interval: 30s
 
 # Room climate sensor BME280 (temperature, humidity and pressure)
 sensor:
@@ -35,4 +35,4 @@ sensor:
       name: $zone_name lufttryck
       id: zone_pressure
     address: 0x76
-    update_interval: 10s
+    update_interval: 30s
