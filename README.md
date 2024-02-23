@@ -11,3 +11,6 @@ Project to create a smart garage door controller for private homes. Brief projec
 - Garage door open and closed positions have direct feed-back through reed switches.
 - Opening and closing of the garage door can be done also with existing external switch.
 - Option to have garage climate data provided either by the Bosch [BMP280](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280/) temperature and pressure sensor, or the Bosch [BME280](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/) temperature, humidity and pressure sensor.
+
+## Description
+The controller is designed to be an add-on to an existing garage door motor unit. This project is developed for a Teckentrup TM60, supplied from mains voltage 230 VAC and with an internal transformer to 24 VAC. The external open/close switch is of impuls type which cycles the motor unit between open, stop, close, stop, and so on. No endstop switches were fitted originally, neither a light barrier.
