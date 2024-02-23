@@ -5,7 +5,7 @@ switch:
   - platform: gpio
     name: Garageportrelä
     id: gd_relay
-    icon: mdi:garage-variant
+    icon: mdi:electric-switch
     pin:
       number: GPIO21
       mode:
@@ -61,6 +61,7 @@ binary_sensor:
   - platform: gpio
     name: Garageport manövrering
     id: gd_external_switch
+    icon: mdi:light-switch
     pin:
       number: GPIO19
       inverted: false
@@ -77,6 +78,7 @@ cover:
   - platform: endstop
     name: Garageport
     id: gd_garage_door
+    icon: mdi:garage-variant
     device_class: garage
     # Open garage door
     open_action:
