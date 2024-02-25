@@ -15,3 +15,12 @@ Project to create a smart garage door controller for private homes. Brief projec
 ## Description
 The controller is designed to be an add-on to an existing garage door motor unit. This project is developed for a Teckentrup TM60, supplied from mains voltage 230 VAC and with an internal transformer to 24 VAC. The external open/close switch is of impuls type which cycles the motor unit between open, stop, close, stop, and so on. No endstop switches were fitted originally, neither a light barrier.
 
+## Prototype
+
+![Prototype on experiment board](/images/breadboard_prototype.png)
+<br>
+*Prototype wired on experiment board.*
+
+![Magnet and reed switch](/images/magnet_and_reed_switch.png)
+<br>
+*Magnet mounted on motor unit runner and one of the end-stop reed switches.*
