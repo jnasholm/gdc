@@ -15,6 +15,34 @@ Project to create a smart garage door controller for private homes. Brief projec
 ## Description
 The controller is designed to be an add-on to an existing garage door motor unit. This project is developed for a Teckentrup TM60, supplied from mains voltage 230 VAC and with an internal transformer to 24 VAC. The external open/close switch is of impuls type which cycles the motor unit between open, stop, close, stop, and so on. No endstop switches were fitted originally, neither a light barrier.
 
+## Home Assistant Lovelace user interface
+
+The following two user interface cards are used to operate the garage door in my installation.
+
+```
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+  confirmation:
+    text: Manövrera garageport
+name: Garageport
+icon: mdi:garage-variant
+icon_height: 80px
+entity: cover.garageport
+```
+```
+show_name: true
+show_icon: true
+show_state: false
+type: glance
+entities:
+  - entity: binary_sensor.garageport_stangd
+  - entity: binary_sensor.garageport_oppen
+state_color: true
+```
+
 ## Prototype
 
 ![Prototype on experiment board](/images/breadboard_prototype.png)
