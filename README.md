@@ -23,6 +23,7 @@ The following two user interface cards are used to operate the garage door in my
 <br>
 *Home Assistant Lovelace example. Button to operate the garage door and position indicators.*
 
+Button to operate the garage door
 ```yaml
 show_name: true
 show_icon: true
@@ -36,6 +37,7 @@ icon: mdi:garage-variant
 icon_height: 80px
 entity: cover.garageport
 ```
+Position indicators
 ```yaml
 show_name: true
 show_icon: true
