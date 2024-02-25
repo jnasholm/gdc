@@ -19,7 +19,7 @@ The controller is designed to be an add-on to an existing garage door motor unit
 
 The following two user interface cards are used to operate the garage door in my installation.
 
-```
+```yaml
 show_name: true
 show_icon: true
 type: button
@@ -32,7 +32,7 @@ icon: mdi:garage-variant
 icon_height: 80px
 entity: cover.garageport
 ```
-```
+```yaml
 show_name: true
 show_icon: true
 show_state: false
