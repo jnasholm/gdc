@@ -24,3 +24,7 @@ The controller is designed to be an add-on to an existing garage door motor unit
 ![Magnet and reed switch](/images/magnet_and_reed_switch.png)
 <br>
 *Magnet mounted on motor unit runner and one of the end-stop reed switches.*
+
+![HASS UI](/images/hass_ui.png)
+<br>
+*Home Assistant Lovelace example. Button to operate the garage door and position indicators.*
