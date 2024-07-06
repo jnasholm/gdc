@@ -80,6 +80,7 @@ cover:
     id: gd_garage_door
     icon: mdi:garage-variant
     device_class: garage
+    max_duration: 40s
     # Open garage door
     open_action:
       - switch.turn_on: gd_relay
