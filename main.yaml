@@ -6,11 +6,12 @@
 # Main configuration
 #
 substitutions:
-  node_name: gdr1
+  node_name: gdr2
   node_prefix: GD
 
-# Define zone id and name
-  zone_id:   garage
+# Define name, zone id and zone name
+  gd_name: Garageport
+  zone_id: garage
   zone_name: RK Garage
 
 # Board configuration
@@ -60,6 +61,7 @@ packages:
 #  ethernet: !include ethernet.yaml
 #  battery: !include battery.yaml
   time: !include time.yaml
+  controls: !include control-garage_door.yaml
+  garage_door: !include sensors-garage_door.yaml
   status: !include status.yaml
-  cover: !include cover.yaml
-  room_climate: !include sensors-room_climate.yaml
+#  room_climate: !include sensors-room_climate.yaml
