@@ -5,8 +5,8 @@ The controller IO pins are assigned according to the table below[^1][^2][^3].
 |Function|Pin|Comment|
 |------------------------------|:--:|--------|
 |Garage door closed sensor|16|
-|Garage door open sensor|17|Used for ethernet port if enabled
-||18|Used for ethernet port if enabled
+||17|Used for ethernet port if enabled
+|Garage door open sensor|18|Used for ethernet port if enabled
 |External open/close switch|19|
 |Garage door relay open/close|21|
 ||23|Used for ethernet port if enabled
