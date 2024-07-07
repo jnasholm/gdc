@@ -1,0 +1,51 @@
+# Garage door sensor configurations
+
+# Garage door positions
+binary_sensor:
+  # Open position
+  - platform: gpio
+    name: $gd_name öppen
+    id: gd_open_position
+    pin:
+      number: GPIO18
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_on_off: 400ms
+  # Closed position
+  - platform: gpio
+    name: $gd_name stängd
+    id: gd_closed_position
+    pin:
+      number: GPIO16
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_on_off: 400ms
+  # Intermediate position
+  - platform: template
+    name: $gd_name mellanläge
+    id: gd_intermediate_position
+    lambda: |-
+      if ( id(gd_open_position).state )
+         return false;
+      if ( id(gd_closed_position).state )
+         return false;
+      return true;
+  # External open/close switch
+  - platform: gpio
+    name: $gd_name manövrering
+    id: gd_external_switch
+    icon: mdi:light-switch
+    pin:
+      number: GPIO19
+      inverted: true
+      mode:
+        input: true
+        pulldown: true
+    filters:
+      - delayed_on_off: 400ms
