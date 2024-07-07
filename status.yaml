@@ -23,7 +23,7 @@ light:
       - pulse:
           name: active_mode
           transition_length: 0.2s
-          update_interval: 0.8s
+          update_interval: 0.6s
       - pulse:
           name: idle_mode
           transition_length: 0.2s
@@ -34,11 +34,10 @@ binary_sensor:
   - platform: template
     id: ${node_name}_controller_state
     lambda: |-
-      if ( id(gd_intermediate_position).state ) {
+      if ( id(gd_intermediate_position).state )
         return true;
-      } else {
+      else
         return false;
-      }
     on_press:
       - light.turn_on:
           id: ${node_name}_controller_status_indicator
@@ -47,15 +46,3 @@ binary_sensor:
       - light.turn_on:
           id: ${node_name}_controller_status_indicator
           effect: idle_mode
-
-
-#      if ( id(gd_intermediate_position).state ) {
-#          id(controller_status_indicator).turn_on().set_effect(active_mode).perform();
-#          return true;
-#      } else if ( id(gd_relay).state ) {
-#          id(controller_status_indicator).turn_on();
-#          return true;
-#      } else {
-#          id(controller_status_indicator).turn_off();
-#          return false;
-#      }
