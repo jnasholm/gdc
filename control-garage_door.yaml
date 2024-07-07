@@ -1,0 +1,40 @@
+# Garage door controls configuration
+
+# Relay configurations
+switch:
+  # Open/close relay
+  - platform: gpio
+    name: ${gd_name}relä
+    id: gd_relay
+    icon: mdi:electric-switch
+    pin:
+      number: GPIO21
+      mode:
+        output: true
+    on_turn_on:
+      - delay: 600ms
+      - switch.turn_off: gd_relay
+
+# Operation configuration
+cover:  
+  - platform: endstop
+    name: $gd_name
+    id: gd_garage_door
+    icon: mdi:garage-variant
+    device_class: garage
+    max_duration: 40s
+    # Open garage door
+    open_action:
+      - switch.turn_on: gd_relay
+    open_duration: 22s
+    open_endstop: gd_open_position
+    # Close garage door
+    close_action:
+      - switch.turn_on: gd_relay
+    close_duration: 22s
+    close_endstop: gd_closed_position
+    # Stop garage door
+    stop_action:
+      - lambda: |-
+          if ( id(gd_intermediate_position).state )
+            id(gd_relay).turn_on();
