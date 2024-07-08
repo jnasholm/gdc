@@ -7,7 +7,7 @@ binary_sensor:
     name: $gd_name öppen
     id: gd_open_position
     pin:
-      number: GPIO18
+      number: GPIO19
       inverted: true
       mode:
         input: true
@@ -19,7 +19,7 @@ binary_sensor:
     name: $gd_name stängd
     id: gd_closed_position
     pin:
-      number: GPIO16
+      number: GPIO18
       inverted: true
       mode:
         input: true
@@ -42,7 +42,7 @@ binary_sensor:
     id: gd_external_switch
     icon: mdi:light-switch
     pin:
-      number: GPIO19
+      number: GPIO21
       inverted: true
       mode:
         input: true

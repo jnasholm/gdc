@@ -4,12 +4,11 @@ The controller IO pins are assigned according to the table below[^1][^2][^3].
 
 |Function|Pin|Comment|
 |------------------------------|:--:|--------|
-|Garage door closed sensor|16|
 ||17|Used for ethernet port if enabled
-|Garage door open sensor|18|Used for ethernet port if enabled
-|External open/close switch|19|
-|Garage door relay open/close|21|
-||23|Used for ethernet port if enabled
+|Garage door closed sensor|18|Used for ethernet port if enabled
+|Garage door open sensor|19|
+|External open/close switch|21|
+|Garage door relay open/close|23|Used for ethernet port if enabled
 |Climate sensor i2c SDA|26|
 |Climate sensor i2c SCL|27|
 |System status LED|32|

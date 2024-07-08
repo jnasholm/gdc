@@ -8,7 +8,7 @@ switch:
     id: gd_relay
     icon: mdi:electric-switch
     pin:
-      number: GPIO21
+      number: GPIO23
       mode:
         output: true
     on_turn_on:
