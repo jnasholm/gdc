@@ -4,7 +4,7 @@
 binary_sensor:
   # Open position
   - platform: gpio
-    name: $gd_name öppen
+    name: $node_prefix öppen
     id: gd_open_position
     pin:
       number: GPIO19
@@ -16,7 +16,7 @@ binary_sensor:
       - delayed_on_off: 400ms
   # Closed position
   - platform: gpio
-    name: $gd_name stängd
+    name: $node_prefix stängd
     id: gd_closed_position
     pin:
       number: GPIO18
@@ -28,7 +28,7 @@ binary_sensor:
       - delayed_on_off: 400ms
   # Intermediate position
   - platform: template
-    name: $gd_name mellanläge
+    name: $node_prefix mellanläge
     id: gd_intermediate_position
     lambda: |-
       if ( id(gd_open_position).state )
@@ -38,7 +38,7 @@ binary_sensor:
       return true;
   # External open/close switch
   - platform: gpio
-    name: $gd_name manövrering
+    name: $node_prefix manövrering
     id: gd_external_switch
     icon: mdi:light-switch
     pin:

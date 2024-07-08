@@ -4,7 +4,7 @@
 switch:
   # Open/close relay
   - platform: gpio
-    name: ${gd_name}relä
+    name: $node_prefix relä
     id: gd_relay
     icon: mdi:electric-switch
     pin:
