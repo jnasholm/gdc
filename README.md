@@ -45,6 +45,7 @@ show_state: false
 type: glance
 entities:
   - entity: binary_sensor.garageport_stangd
+  - entity: binary_sensor.garageport_mellanlage
   - entity: binary_sensor.garageport_oppen
 state_color: true
 ```
