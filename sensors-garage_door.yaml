@@ -31,9 +31,9 @@ binary_sensor:
     name: $node_prefix mellanläge
     id: gd_intermediate_position
     lambda: |-
-      if ( id(gd_open_position).state )
-         return false;
       if ( id(gd_closed_position).state )
+         return false;
+      if ( id(gd_open_position).state )
          return false;
       return true;
   # External open/close switch
@@ -43,7 +43,7 @@ binary_sensor:
     icon: mdi:light-switch
     pin:
       number: GPIO21
-      inverted: true
+      inverted: false
       mode:
         input: true
         pulldown: true
