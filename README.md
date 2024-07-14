@@ -52,10 +52,18 @@ state_color: true
 
 ## Prototype
 
-![Prototype on experiment board](/images/breadboard_prototype.png)
+![Prototype on breadboard](/images/breadboard_prototype.png)
 <br>
-*Prototype wired on experiment board.*
+*Prototype wired on breadboard.*
 
 ![Magnet and reed switch](/images/magnet_and_reed_switch.png)
 <br>
 *Magnet mounted on motor unit runner and one of the end-stop reed switches.*
+
+![Prototype on experiment board](/images/experiment_prototype.png)
+<br>
+*Prototype on experiment board.*
+
+![Prototype powered for functional testing](/images/prototype_with_regulator_and_leds.png)
+<br>
+*PPrototype powered for functional testing. Switching regulator on the right, status LEDs on the lower left*
