@@ -66,4 +66,4 @@ state_color: true
 
 ![Prototype powered for functional testing](/images/prototype_with_regulator_and_leds.png)
 <br>
-*PPrototype powered for functional testing. Switching regulator on the right, status LEDs on the lower left*
+*Prototype powered for functional testing. Switching regulator on the right, status LEDs on the lower left*
