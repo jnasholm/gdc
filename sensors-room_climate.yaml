@@ -2,8 +2,8 @@
 
 # Input configuration room sensors
 i2c:
-  sda: GPIO26
-  scl: GPIO27
+  sda: $room_climate_sda_pin
+  scl: $room_climate_scl_pin
   scan: true
 
 # Room climate sensor BMP280 (temperature and pressure)

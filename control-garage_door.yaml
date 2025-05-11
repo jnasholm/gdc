@@ -4,11 +4,11 @@
 switch:
   # Open/close relay
   - platform: gpio
-    name: $node_prefix relä
+    name: Relä
     id: gd_relay
     icon: mdi:electric-switch
     pin:
-      number: GPIO23
+      number: $gd_relay_pin
       mode:
         output: true
     on_turn_on:

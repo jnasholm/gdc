@@ -6,8 +6,8 @@
 # Main configuration
 #
 substitutions:
-  node_name: gdr2
-  node_prefix: GD
+  node_name: gdc
+  node_prefix: GDC
 
 # Define name, zone id and zone name
   gd_name: Garageport
@@ -20,9 +20,9 @@ esphome:
     name: "jnasholm.gdc"
     version: "0.1"
   name: $node_name
-  platform: ESP32
-  board: esp32-devkitlipo
-#  board: esp32-poe-iso
+  friendly_name: $node_prefix
+  comment: Garage Door Controller
+  min_version: 2025.4.0
 
 # Flash write interval
 preferences:
@@ -44,24 +44,23 @@ ota:
 # Node switches
 switch:
   - platform: restart
-    name: $node_prefix starta om nod
+    name: Starta om nod
 #  - platform: shutdown
-#    name: $node_prefix st??ng av nod
+#    name: Stäng av nod
 
 # Node uptime
 sensor:
   - platform: uptime
-    name: $node_prefix drifttid
+    name: Drifttid
     icon: mdi:timer-outline
     update_interval: 60s
 
 # Include packages
 packages:
-  wifi: !include wifi.yaml
-#  ethernet: !include ethernet.yaml
+  boardconfig: !include boardconfig.yaml
 #  battery: !include battery.yaml
   time: !include time.yaml
+  status: !include status.yaml
   controls: !include control-garage_door.yaml
   garage_door: !include sensors-garage_door.yaml
-  status: !include status.yaml
 #  room_climate: !include sensors-room_climate.yaml

@@ -1,0 +1,70 @@
+# Board configurations
+
+# Olimex ESP32-DevKit-LiPo
+esp32:
+  board:    esp32-devkitlipo
+packages:
+  wifi: !include wifi.yaml
+substitutions:
+  # status.yaml
+  system_led_pin:        GPIO32
+  controller_led_pin:    GPIO33
+  # control-garage_door.yaml
+  gd_relay_pin:          GPIO23
+  # sensors-garage_door.yaml
+  gd_open_pos_pin:       GPIO19
+  gd_closed_pos_pin:     GPIO18
+  # sensors-room_climate.yaml
+  room_climate_sda_pin:  GPIO26
+  room_climate_scl_pin:  GPIO27
+  # battery.yaml
+  battery_pin:         GPIO35
+  charging_pin:        GPIO39
+  battery_factor:      '1.784'   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
+  charging_factor:     '1.468'   # 5.0V/5.0V*1.4681, voltage divider (220+470)/470kohm
+
+## Olimex ESP32-C3-DevKit-Lipo
+#esp32:
+#  board:    esp32-c3-devkitm-1
+#packages:
+#  wifi: !include wifi.yaml
+#substitutions:
+#  # status.yaml
+#  system_led_pin:      GPIO1
+#  controller_led_pin:  GPIO2
+#  # control-garage_door.yaml
+#  gd_relay_pin:          GPIO3
+#  # sensors-garage_door.yaml
+#  gd_open_pos_pin:       GPIO4
+#  gd_closed_pos_pin:     GPIO5
+#  # sensors-room_climate.yaml
+#  room_climate_sda_pin:  GPIO6
+#  room_climate_scl_pin:  GPIO7
+#  # battery.yaml
+#  battery_pin:         GPIO3
+#  charging_pin:        GPIO4
+#  battery_factor:      '1.784'   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
+#  charging_factor:     '1.468'   # 5.0V/5.0V*1.4681, voltage divider (220+470)/470kohm
+
+## Olimex ESP32-POE-ISO
+#esp32:
+#  board:    esp32-poe-iso
+#packages:
+#  ethernet: !include ethernet.yaml
+#substitutions:
+#  # status.yaml
+#  system_led_pin:        GPIO32
+#  controller_led_pin:    GPIO33
+#  # control-garage_door.yaml
+#  gd_relay_pin:          GPIO23
+#  # sensors-garage_door.yaml
+#  gd_open_pos_pin:       GPIO19
+#  gd_closed_pos_pin:     GPIO18
+#  # sensors-room_climate.yaml
+#  room_climate_sda_pin:  GPIO26
+#  room_climate_scl_pin:  GPIO27
+#  # battery.yaml
+#  battery_pin:         GPIO35
+#  charging_pin:        GPIO39
+#  battery_factor:      '1.784'   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
+#  charging_factor:     '1.470'   # 5.0V/5.0V*1.4700, voltage divider (47+100)/100kohm
