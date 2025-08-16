@@ -14,6 +14,7 @@ substitutions:
   # sensors-garage_door.yaml
   gd_open_pos_pin:       GPIO19
   gd_closed_pos_pin:     GPIO18
+  gd_switch_pos_pin:     GPIO21
   # sensors-room_climate.yaml
   room_climate_sda_pin:  GPIO26
   room_climate_scl_pin:  GPIO27
@@ -33,13 +34,14 @@ substitutions:
 #  system_led_pin:      GPIO1
 #  controller_led_pin:  GPIO2
 #  # control-garage_door.yaml
-#  gd_relay_pin:          GPIO3
+#  gd_relay_pin:          GPIO6
 #  # sensors-garage_door.yaml
-#  gd_open_pos_pin:       GPIO4
-#  gd_closed_pos_pin:     GPIO5
+#  gd_open_pos_pin:       GPIO7
+#  gd_closed_pos_pin:     GPIO8
+#  gd_switch_pos_pin:     GPIO5
 #  # sensors-room_climate.yaml
-#  room_climate_sda_pin:  GPIO6
-#  room_climate_scl_pin:  GPIO7
+#  room_climate_sda_pin:  GPIO9
+#  room_climate_scl_pin:  GPIO10
 #  # battery.yaml
 #  battery_pin:         GPIO3
 #  charging_pin:        GPIO4
@@ -60,6 +62,7 @@ substitutions:
 #  # sensors-garage_door.yaml
 #  gd_open_pos_pin:       GPIO19
 #  gd_closed_pos_pin:     GPIO18
+#  gd_switch_pos_pin:     GPIO21
 #  # sensors-room_climate.yaml
 #  room_climate_sda_pin:  GPIO26
 #  room_climate_scl_pin:  GPIO27
