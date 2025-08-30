@@ -14,7 +14,7 @@ substitutions:
   zone_id: garage
   zone_name: RK Garage
 
-# Board configuration
+# Project configuration
 esphome:
   project:
     name: "jnasholm.gdc"
