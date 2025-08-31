@@ -42,7 +42,7 @@ binary_sensor:
     id: gd_external_switch
     icon: mdi:light-switch
     pin:
-      number: $gd_switch_pos_pin
+      number: $gd_switch_pin
       inverted: false
       mode:
         input: true
