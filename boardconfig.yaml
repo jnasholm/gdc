@@ -16,7 +16,7 @@ substitutions:
   # sensors-garage_door.yaml
   gd_open_pos_pin:       GPIO19
   gd_closed_pos_pin:     GPIO18
-  gd_switch_pos_pin:     GPIO21
+  gd_switch_pin:         GPIO21
   # sensors-room_climate.yaml
   room_climate_sda_pin:  GPIO26
   room_climate_scl_pin:  GPIO27
@@ -25,6 +25,25 @@ substitutions:
   charging_pin:        GPIO39
   battery_factor:      '1.784'   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
   charging_factor:     '1.468'   # 5.0V/5.0V*1.4681, voltage divider (220+470)/470kohm
+
+## Waveshare ESP32-S3-Zero
+#esp32:
+#  board:    esp32-s3-devkitc-1
+#  framework:
+#    type: esp-idf
+#packages:
+#  wifi: !include wifi.yaml
+#substitutions:
+#  # status.yaml
+#  system_led_pin:      GPIO7
+#  controller_led_pin:  GPIO21
+#  # sensors-garage_door.yaml
+#  gd_open_pos_pin:       GPIO1
+#  gd_closed_pos_pin:     GPIO2
+#  gd_switch_pin:         GPIO3
+#  # sensors-room_climate.yaml
+#  room_climate_sda_pin:  GPIO4
+#  room_climate_scl_pin:  GPIO5
 
 ## Olimex ESP32-C3-DevKit-Lipo
 #esp32:
@@ -42,7 +61,7 @@ substitutions:
 #  # sensors-garage_door.yaml
 #  gd_open_pos_pin:       GPIO7
 #  gd_closed_pos_pin:     GPIO8
-#  gd_switch_pos_pin:     GPIO5
+#  gd_switch_pin:         GPIO5
 #  # sensors-room_climate.yaml
 #  room_climate_sda_pin:  GPIO9
 #  room_climate_scl_pin:  GPIO10
@@ -68,7 +87,7 @@ substitutions:
 #  # sensors-garage_door.yaml
 #  gd_open_pos_pin:       GPIO19
 #  gd_closed_pos_pin:     GPIO18
-#  gd_switch_pos_pin:     GPIO21
+#  gd_switch_pin:         GPIO21
 #  # sensors-room_climate.yaml
 #  room_climate_sda_pin:  GPIO26
 #  room_climate_scl_pin:  GPIO27
