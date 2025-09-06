@@ -17,7 +17,7 @@ switch:
 
 # Operation configuration
 cover:  
-  - platform: endstop
+  - platform: feedback
     name: $gd_name
     id: gd_garage_door
     icon: mdi:garage-variant
