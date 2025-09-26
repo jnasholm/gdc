@@ -36,5 +36,6 @@ cover:
     # Stop garage door
     stop_action:
       - lambda: |-
-          if ( id(gd_intermediate_position).state )
+          if ( (id(gd_closed_position).state == false) &&
+               (id(gd_open_position).state == false) )
             id(gd_relay).turn_on();
