@@ -36,16 +36,16 @@ binary_sensor:
       if ( id(gd_open_position).state )
          return false;
       return true;
-  # External open/close switch
-  - platform: gpio
-    name: Manövrering
-    id: gd_external_switch
-    icon: mdi:light-switch
-    pin:
-      number: $gd_switch_pin
-      inverted: false
-      mode:
-        input: true
-        pulldown: true
-    filters:
-      - delayed_on_off: 400ms
+#  # External open/close switch
+#  - platform: gpio
+#    name: Manövrering
+#    id: gd_external_switch
+#    icon: mdi:light-switch
+#    pin:
+#      number: $gd_switch_pin
+#      inverted: false
+#      mode:
+#        input: true
+#        pulldown: true
+#    filters:
+#      - delayed_on_off: 400ms
