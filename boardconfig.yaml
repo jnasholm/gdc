@@ -10,7 +10,7 @@ packages:
 substitutions:
   # status.yaml
   system_led_pin:      GPIO7
-  controller_led_pin:  GPIO8
+  controller_led_pin:  GPIO8     # default on-board LED
   # control-garage_door.yaml
   gd_relay_pin:          GPIO6
   # sensors-garage_door.yaml
