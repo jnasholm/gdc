@@ -55,6 +55,13 @@ sensor:
     icon: mdi:timer-outline
     update_interval: 60s
 
+# Node connection status
+binary_sensor:
+  - platform: status
+    name: Anslutning
+    id: ${node_name}_connection_status
+    icon: mdi:lan
+
 # Include packages
 packages:
   boardconfig: !include boardconfig.yaml
